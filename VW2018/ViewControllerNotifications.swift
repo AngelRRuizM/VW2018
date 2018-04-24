@@ -1,5 +1,5 @@
 //
-//  ViewControllerCrafter.swift
+//  ViewControllerNotifications.swift
 //  VW2018
 //
 //  Created by Alumno on 24/04/18.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-class ViewControllerCrafter: UIViewController {
+class ViewControllerNotifications: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
 
@@ -31,17 +31,5 @@ class ViewControllerCrafter: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
-    @IBAction func selectCrafter(_ sender: Any) {
-        self.performSegue(withIdentifier: "toTabBar", sender: self)
-    }
-    
-    @IBAction func profile(_ sender: Any) {
-        self.performSegue(withIdentifier: "toProfile", sender: self)
-    }
-    
-    @IBAction func notifications(_ sender: Any) {
-        self.performSegue(withIdentifier: "toNotifications", sender: self)
-    }
-    
+
 }

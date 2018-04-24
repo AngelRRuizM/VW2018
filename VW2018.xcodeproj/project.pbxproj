@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FBD0AEF3208FDB6900E6F6CB /* ViewControllerProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD0AEF2208FDB6900E6F6CB /* ViewControllerProfile.swift */; };
+		FBD0AEF5208FDC5500E6F6CB /* ViewControllerNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD0AEF4208FDC5500E6F6CB /* ViewControllerNotifications.swift */; };
 		FBDA5088208FAD7A003A94FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDA5087208FAD7A003A94FC /* AppDelegate.swift */; };
 		FBDA508A208FAD7A003A94FC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDA5089208FAD7A003A94FC /* ViewController.swift */; };
 		FBDA508D208FAD7A003A94FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBDA508B208FAD7A003A94FC /* Main.storyboard */; };
@@ -15,6 +17,7 @@
 		FBDA509D208FAD7A003A94FC /* VW2018Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDA509C208FAD7A003A94FC /* VW2018Tests.swift */; };
 		FBDA50A8208FAD7A003A94FC /* VW2018UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDA50A7208FAD7A003A94FC /* VW2018UITests.swift */; };
 		FBDA50B6208FB580003A94FC /* ViewControllerCrafter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDA50B5208FB580003A94FC /* ViewControllerCrafter.swift */; };
+		FBDA50BA208FD0A2003A94FC /* ViewControllerPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDA50B9208FD0A2003A94FC /* ViewControllerPass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FBD0AEF2208FDB6900E6F6CB /* ViewControllerProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerProfile.swift; sourceTree = "<group>"; };
+		FBD0AEF4208FDC5500E6F6CB /* ViewControllerNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerNotifications.swift; sourceTree = "<group>"; };
 		FBDA5084208FAD7A003A94FC /* VW2018.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VW2018.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBDA5087208FAD7A003A94FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBDA5089208FAD7A003A94FC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +54,7 @@
 		FBDA50A7208FAD7A003A94FC /* VW2018UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VW2018UITests.swift; sourceTree = "<group>"; };
 		FBDA50A9208FAD7A003A94FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FBDA50B5208FB580003A94FC /* ViewControllerCrafter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerCrafter.swift; sourceTree = "<group>"; };
+		FBDA50B9208FD0A2003A94FC /* ViewControllerPass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPass.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,9 @@
 		FBDA5086208FAD7A003A94FC /* VW2018 */ = {
 			isa = PBXGroup;
 			children = (
+				FBDA50B9208FD0A2003A94FC /* ViewControllerPass.swift */,
+				FBD0AEF2208FDB6900E6F6CB /* ViewControllerProfile.swift */,
+				FBD0AEF4208FDC5500E6F6CB /* ViewControllerNotifications.swift */,
 				FBDA50B5208FB580003A94FC /* ViewControllerCrafter.swift */,
 				FBDA5087208FAD7A003A94FC /* AppDelegate.swift */,
 				FBDA5089208FAD7A003A94FC /* ViewController.swift */,
@@ -263,8 +272,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBDA50B6208FB580003A94FC /* ViewControllerCrafter.swift in Sources */,
+				FBDA50BA208FD0A2003A94FC /* ViewControllerPass.swift in Sources */,
 				FBDA508A208FAD7A003A94FC /* ViewController.swift in Sources */,
 				FBDA5088208FAD7A003A94FC /* AppDelegate.swift in Sources */,
+				FBD0AEF3208FDB6900E6F6CB /* ViewControllerProfile.swift in Sources */,
+				FBD0AEF5208FDC5500E6F6CB /* ViewControllerNotifications.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
