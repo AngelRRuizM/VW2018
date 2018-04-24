@@ -14,6 +14,7 @@
 		FBDA5092208FAD7A003A94FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBDA5090208FAD7A003A94FC /* LaunchScreen.storyboard */; };
 		FBDA509D208FAD7A003A94FC /* VW2018Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDA509C208FAD7A003A94FC /* VW2018Tests.swift */; };
 		FBDA50A8208FAD7A003A94FC /* VW2018UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDA50A7208FAD7A003A94FC /* VW2018UITests.swift */; };
+		FBDA50B6208FB580003A94FC /* ViewControllerCrafter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDA50B5208FB580003A94FC /* ViewControllerCrafter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		FBDA50A3208FAD7A003A94FC /* VW2018UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VW2018UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBDA50A7208FAD7A003A94FC /* VW2018UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VW2018UITests.swift; sourceTree = "<group>"; };
 		FBDA50A9208FAD7A003A94FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FBDA50B5208FB580003A94FC /* ViewControllerCrafter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerCrafter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		FBDA5086208FAD7A003A94FC /* VW2018 */ = {
 			isa = PBXGroup;
 			children = (
+				FBDA50B5208FB580003A94FC /* ViewControllerCrafter.swift */,
 				FBDA5087208FAD7A003A94FC /* AppDelegate.swift */,
 				FBDA5089208FAD7A003A94FC /* ViewController.swift */,
 				FBDA508B208FAD7A003A94FC /* Main.storyboard */,
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBDA50B6208FB580003A94FC /* ViewControllerCrafter.swift in Sources */,
 				FBDA508A208FAD7A003A94FC /* ViewController.swift in Sources */,
 				FBDA5088208FAD7A003A94FC /* AppDelegate.swift in Sources */,
 			);
