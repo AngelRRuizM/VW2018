@@ -121,7 +121,6 @@
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="notifications:" destination="7ls-u5-Mvq" eventType="touchUpInside" id="7Vu-TC-jQk"/>
-                                    <segue destination="tLm-w0-Geb" kind="show" identifier="toNotifications" id="71a-nG-IC4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RjW-5O-LK3">
@@ -133,7 +132,6 @@
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="profile:" destination="7ls-u5-Mvq" eventType="touchUpInside" id="xjH-68-bz9"/>
-                                    <segue destination="VQW-Fv-FrA" kind="show" identifier="toProfile" id="LQA-Fa-Lhn"/>
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m2a-0L-ljz">
@@ -150,7 +148,6 @@
                                 </state>
                                 <connections>
                                     <action selector="selectCrafter:" destination="7ls-u5-Mvq" eventType="touchUpInside" id="L4m-GV-x5Q"/>
-                                    <segue destination="UBs-ba-1hd" kind="show" identifier="toTabBar" id="xjQ-NL-xZR"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selecciona tu Crafter" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="iCS-sf-wT6">
@@ -197,6 +194,10 @@
                         <viewLayoutGuide key="safeArea" id="0qw-gU-wrd"/>
                     </view>
                     <navigationItem key="navigationItem" title="Crafter" id="Iip-kZ-apv"/>
+                    <connections>
+                        <segue destination="tLm-w0-Geb" kind="show" identifier="toNotifications" id="yyY-sQ-LPP"/>
+                        <segue destination="VQW-Fv-FrA" kind="show" identifier="toProfile" id="V8x-zU-6tA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="acZ-eA-BHX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -235,7 +236,7 @@
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="profile:" destination="F9j-Ta-Yns" eventType="touchUpInside" id="Edu-Xn-oBM"/>
-                                    <segue destination="VQW-Fv-FrA" kind="show" identifier="toProfile" id="p7d-HZ-YdB"/>
+                                    <segue destination="VQW-Fv-FrA" kind="show" identifier="toProfile1" id="p7d-HZ-YdB"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TE0-KO-CUV">
@@ -244,7 +245,6 @@
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="notifications:" destination="F9j-Ta-Yns" eventType="touchUpInside" id="0m3-QZ-hQN"/>
-                                    <segue destination="tLm-w0-Geb" kind="show" identifier="toNotifications" id="xWK-EW-Hoc"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="!A Tiempo!" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="0lZ-Mz-OBy">
@@ -334,7 +334,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6aT-Wd-edy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4239.130434782609" y="-31.793478260869566"/>
+            <point key="canvasLocation" x="4972" y="-139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3Ew-eW-6Vr">
@@ -441,11 +441,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M7w-0b-osA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3357" y="-32"/>
+            <point key="canvasLocation" x="4067" y="-178"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="71a-nG-IC4"/>
+        <segue reference="yyY-sQ-LPP"/>
         <segue reference="uN8-wX-q96"/>
         <segue reference="p7d-HZ-YdB"/>
     </inferredMetricsTieBreakers>

@@ -33,11 +33,11 @@ class ViewControllerPass: UIViewController {
     */
 
     @IBAction func notifications(_ sender: Any) {
-        self.performSegue(withIdentifier: "toNotifications", sender: self)
+        self.performSegue(withIdentifier: "toNotifications1", sender: self)
     }
     
     @IBAction func profile(_ sender: Any) {
-        self.performSegue(withIdentifier: "toProfile", sender: self)
+        self.performSegue(withIdentifier: "toProfile1", sender: self)
     }
     
     @IBAction func crafter(_ sender: Any) {
