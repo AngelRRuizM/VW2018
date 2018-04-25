@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB84A2A32090FB1D00522934 /* ViewControllerAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB84A2A22090FB1D00522934 /* ViewControllerAlert.swift */; };
 		FBC6D9C8208FFEE7008ACADD /* ViewControllerRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC6D9C7208FFEE7008ACADD /* ViewControllerRegister.swift */; };
 		FBC6D9CA20900120008ACADD /* ViewControllerPerformance.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC6D9C920900120008ACADD /* ViewControllerPerformance.swift */; };
 		FBC6D9CC20900A62008ACADD /* ViewControllerCrafterRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC6D9CB20900A62008ACADD /* ViewControllerCrafterRegister.swift */; };
+		FBC6D9CE20901049008ACADD /* ViewControllerSOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC6D9CD20901049008ACADD /* ViewControllerSOS.swift */; };
 		FBD0AEF3208FDB6900E6F6CB /* ViewControllerProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD0AEF2208FDB6900E6F6CB /* ViewControllerProfile.swift */; };
 		FBD0AEF5208FDC5500E6F6CB /* ViewControllerNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD0AEF4208FDC5500E6F6CB /* ViewControllerNotifications.swift */; };
 		FBDA5088208FAD7A003A94FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDA5087208FAD7A003A94FC /* AppDelegate.swift */; };
@@ -41,9 +43,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FB84A2A22090FB1D00522934 /* ViewControllerAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAlert.swift; sourceTree = "<group>"; };
 		FBC6D9C7208FFEE7008ACADD /* ViewControllerRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerRegister.swift; sourceTree = "<group>"; };
 		FBC6D9C920900120008ACADD /* ViewControllerPerformance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPerformance.swift; sourceTree = "<group>"; };
 		FBC6D9CB20900A62008ACADD /* ViewControllerCrafterRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerCrafterRegister.swift; sourceTree = "<group>"; };
+		FBC6D9CD20901049008ACADD /* ViewControllerSOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerSOS.swift; sourceTree = "<group>"; };
 		FBD0AEF2208FDB6900E6F6CB /* ViewControllerProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerProfile.swift; sourceTree = "<group>"; };
 		FBD0AEF4208FDC5500E6F6CB /* ViewControllerNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerNotifications.swift; sourceTree = "<group>"; };
 		FBDA5084208FAD7A003A94FC /* VW2018.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VW2018.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +115,7 @@
 		FBDA5086208FAD7A003A94FC /* VW2018 */ = {
 			isa = PBXGroup;
 			children = (
+				FBC6D9CD20901049008ACADD /* ViewControllerSOS.swift */,
 				FBDA50B9208FD0A2003A94FC /* ViewControllerPass.swift */,
 				FBD0AEF2208FDB6900E6F6CB /* ViewControllerProfile.swift */,
 				FBD0AEF4208FDC5500E6F6CB /* ViewControllerNotifications.swift */,
@@ -121,6 +126,7 @@
 				FBDA5087208FAD7A003A94FC /* AppDelegate.swift */,
 				FBDA5089208FAD7A003A94FC /* ViewController.swift */,
 				FBDA508B208FAD7A003A94FC /* Main.storyboard */,
+				FB84A2A22090FB1D00522934 /* ViewControllerAlert.swift */,
 				FBDA508E208FAD7A003A94FC /* Assets.xcassets */,
 				FBDA5090208FAD7A003A94FC /* LaunchScreen.storyboard */,
 				FBDA5093208FAD7A003A94FC /* Info.plist */,
@@ -286,8 +292,10 @@
 				FBC6D9CA20900120008ACADD /* ViewControllerPerformance.swift in Sources */,
 				FBDA5088208FAD7A003A94FC /* AppDelegate.swift in Sources */,
 				FBC6D9CC20900A62008ACADD /* ViewControllerCrafterRegister.swift in Sources */,
+				FB84A2A32090FB1D00522934 /* ViewControllerAlert.swift in Sources */,
 				FBC6D9C8208FFEE7008ACADD /* ViewControllerRegister.swift in Sources */,
 				FBD0AEF3208FDB6900E6F6CB /* ViewControllerProfile.swift in Sources */,
+				FBC6D9CE20901049008ACADD /* ViewControllerSOS.swift in Sources */,
 				FBD0AEF5208FDC5500E6F6CB /* ViewControllerNotifications.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
