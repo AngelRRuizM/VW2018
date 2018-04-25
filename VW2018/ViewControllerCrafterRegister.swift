@@ -1,5 +1,5 @@
 //
-//  ViewControllerProfile.swift
+//  ViewControllerCrafterRegister.swift
 //  VW2018
 //
 //  Created by Alumno on 24/04/18.
@@ -8,14 +8,12 @@
 
 import UIKit
 
-class ViewControllerProfile: UIViewController{
+class ViewControllerCrafterRegister: UIViewController {
 
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,4 +32,15 @@ class ViewControllerProfile: UIViewController{
     }
     */
 
+    @IBAction func notifications(_ sender: Any) {
+        self.performSegue(withIdentifier: "toNotifications", sender: self)
+    }
+    
+    @IBAction func profile(_ sender: Any) {
+        self.performSegue(withIdentifier: "toProfile", sender: self)
+    }
+    
+    @IBAction func seleccionar(_ sender: Any) {
+        self.performSegue(withIdentifier: "back", sender: self)
+    }
 }
