@@ -114,6 +114,10 @@ class ViewControllerCrafterRegister: UIViewController, UIPickerViewDataSource, U
     
     
     @IBAction func seleccionar(_ sender: Any) {
+        let x = UserDefaults.standard
+        x.set( (pickerData[picker.selectedRow(inComponent: 0)] as! String), forKey: "registerCrafter")
+        print( (pickerData[picker.selectedRow(inComponent: 0)] as! String) )
+        x.synchronize()
         self.performSegue(withIdentifier: "toRegisterTable", sender: self)
     }
 }

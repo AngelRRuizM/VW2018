@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB3813552092503800D64079 /* Crafter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3813542092503800D64079 /* Crafter.swift */; };
+		FB38135920926DDC00D64079 /* TableViewControllerRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB38135820926DDC00D64079 /* TableViewControllerRegister.swift */; };
 		FB84A2A32090FB1D00522934 /* ViewControllerAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB84A2A22090FB1D00522934 /* ViewControllerAlert.swift */; };
 		FBC6D9C8208FFEE7008ACADD /* ViewControllerRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC6D9C7208FFEE7008ACADD /* ViewControllerRegister.swift */; };
 		FBC6D9CA20900120008ACADD /* ViewControllerPerformance.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC6D9C920900120008ACADD /* ViewControllerPerformance.swift */; };
@@ -43,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FB3813542092503800D64079 /* Crafter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crafter.swift; sourceTree = "<group>"; };
+		FB38135820926DDC00D64079 /* TableViewControllerRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerRegister.swift; sourceTree = "<group>"; };
 		FB84A2A22090FB1D00522934 /* ViewControllerAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAlert.swift; sourceTree = "<group>"; };
 		FBC6D9C7208FFEE7008ACADD /* ViewControllerRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerRegister.swift; sourceTree = "<group>"; };
 		FBC6D9C920900120008ACADD /* ViewControllerPerformance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPerformance.swift; sourceTree = "<group>"; };
@@ -126,6 +130,8 @@
 				FBDA5087208FAD7A003A94FC /* AppDelegate.swift */,
 				FBDA5089208FAD7A003A94FC /* ViewController.swift */,
 				FBDA508B208FAD7A003A94FC /* Main.storyboard */,
+				FB3813542092503800D64079 /* Crafter.swift */,
+				FB38135820926DDC00D64079 /* TableViewControllerRegister.swift */,
 				FB84A2A22090FB1D00522934 /* ViewControllerAlert.swift */,
 				FBDA508E208FAD7A003A94FC /* Assets.xcassets */,
 				FBDA5090208FAD7A003A94FC /* LaunchScreen.storyboard */,
@@ -293,7 +299,9 @@
 				FBDA5088208FAD7A003A94FC /* AppDelegate.swift in Sources */,
 				FBC6D9CC20900A62008ACADD /* ViewControllerCrafterRegister.swift in Sources */,
 				FB84A2A32090FB1D00522934 /* ViewControllerAlert.swift in Sources */,
+				FB3813552092503800D64079 /* Crafter.swift in Sources */,
 				FBC6D9C8208FFEE7008ACADD /* ViewControllerRegister.swift in Sources */,
+				FB38135920926DDC00D64079 /* TableViewControllerRegister.swift in Sources */,
 				FBD0AEF3208FDB6900E6F6CB /* ViewControllerProfile.swift in Sources */,
 				FBC6D9CE20901049008ACADD /* ViewControllerSOS.swift in Sources */,
 				FBD0AEF5208FDC5500E6F6CB /* ViewControllerNotifications.swift in Sources */,
