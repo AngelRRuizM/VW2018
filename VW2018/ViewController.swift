@@ -21,10 +21,21 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        //Checar si email es nil. Si no lo es, ya hizo login
-        
     }
-
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        //Checar si email es nil. Si no lo es, ya hizo login
+        if UserDefaults.standard.string(forKey: "email") != nil {
+            print("lol")
+            self.performSegue(withIdentifier: "toCrafter", sender: self)
+        }
+        else{
+            print("lol2")
+        }
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -66,7 +77,9 @@ class ViewController: UIViewController {
         if let array = json as? [Any]{
             if array.count == 1{
                 //Hace set del email.
-                UserDefaults.standard.set(username.text!, forKey: "email")
+                let x = UserDefaults.standard
+                x.set(username.text!, forKey: "email")
+                x.synchronize()
                 self.performSegue(withIdentifier: "toCrafter", sender: self)
                 //Agregar lo de guardar en la plist
             }

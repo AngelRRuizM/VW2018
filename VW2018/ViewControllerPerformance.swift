@@ -32,11 +32,6 @@ class ViewControllerPerformance: UIViewController {
     }
     */
 
-    @IBAction func profile(_ sender: Any) {
-        self.performSegue(withIdentifier: "toProfile", sender: self)
-    }
-    @IBAction func notifications(_ sender: Any) {
-        self.performSegue(withIdentifier: "toNotifications", sender: self)
-    }
+    
     
 }

@@ -36,11 +36,4 @@ class ViewControllerRegister: UIViewController {
         self.performSegue(withIdentifier: "toCrafter", sender: self)
     }
     
-    @IBAction func notifications(_ sender: Any) {
-        self.performSegue(withIdentifier: "toNotifications", sender: self)
-    }
-    
-    @IBAction func profile(_ sender: Any) {
-        self.performSegue(withIdentifier: "toProfile", sender: self)
-    }
 }

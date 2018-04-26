@@ -31,9 +31,4 @@ class ViewControllerAlert: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    @IBAction func notifications(_ sender: Any) {self.performSegue(withIdentifier: "toNotifications", sender: self)
-    }
-    @IBAction func profile(_ sender: Any) {self.performSegue(withIdentifier: "toProfile", sender: self)
-    }
-    
 }

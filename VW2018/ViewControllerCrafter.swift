@@ -15,6 +15,7 @@ class ViewControllerCrafter: UIViewController, UIPickerViewDataSource, UIPickerV
     var dataTask: URLSessionDataTask?
     var dataToProcess = Data()
     @IBOutlet weak var picker: UIPickerView!
+    @IBOutlet weak var leaveCrafter: UIButton!
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -30,14 +31,21 @@ class ViewControllerCrafter: UIViewController, UIPickerViewDataSource, UIPickerV
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.getCrafters()
-        
         picker.dataSource = self
         picker.delegate = self
+        self.getCrafters()
+        if UserDefaults.standard.string(forKey: "crafter") != nil {
+            leaveCrafter.isHidden = false
+        }
+        else{
+            leaveCrafter.isHidden = true
+        }
         
         
-        // Do any additional setup after loading the view.
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        //Checar si crafter es nil. Si no lo es, ya selecciono crafter
         
     }
 
@@ -60,26 +68,36 @@ class ViewControllerCrafter: UIViewController, UIPickerViewDataSource, UIPickerV
                 if let httpsResponse = response as? HTTPURLResponse {
                     if httpsResponse.statusCode == 200 {
                         DispatchQueue.main.async {
-                            let json = try? JSONSerialization.jsonObject(with: data!, options: [])
-                            if let array = json as? NSArray{
-                                for crafter in array{
-                                    if let dictionary = crafter as? NSDictionary {
-                                        let id = dictionary.value(forKey: "id")
-                                        self.pickerData.add("Crafter \(String(describing: id))")
-                                    }
-                                }
-                            }
+                            self.processData(data: data!)
                         }
                     }
                     else{
                         DispatchQueue.main.async {
-                            self.errorsShow(error: String(httpsResponse.statusCode))
+                            self.errorsShow(error: "Response code")
                         }
+                    }
+                }
+                else{
+                    DispatchQueue.main.async {
+                        self.errorsShow(error: "Response")
                     }
                 }
             }
         }
         dataTask?.resume()
+    }
+    
+    func processData(data: Data){
+        let json = try? JSONSerialization.jsonObject(with: data, options: [])
+        if let array = json as? NSArray{
+            for crafter in array{
+                if let dictionary = crafter as? NSDictionary {
+                    let plates = dictionary.value(forKey: "plates")
+                    self.pickerData.add("\(plates ?? "no plates" )")
+                }
+            }
+        }
+        picker.reloadAllComponents()
     }
     
     func errorsShow(error: String){
@@ -106,15 +124,22 @@ class ViewControllerCrafter: UIViewController, UIPickerViewDataSource, UIPickerV
     */
     
     @IBAction func selectCrafter(_ sender: Any) {
+        
+        let x = UserDefaults.standard
+        x.set( (pickerData[picker.selectedRow(inComponent: 0)] as! String), forKey: "crafter")
+        print( (pickerData[picker.selectedRow(inComponent: 0)] as! String) )
+        x.synchronize()
         self.performSegue(withIdentifier: "toTabBar", sender: self)
     }
     
-    @IBAction func profile(_ sender: Any) {
-        self.performSegue(withIdentifier: "toProfile", sender: self)
+    @IBAction func leaveCrafterAction(_ sender: Any) {
+        let x = UserDefaults.standard
+        x.set( nil, forKey: "crafter")
+        print("nil")
+        x.synchronize()
+        leaveCrafter.isHidden = true
     }
     
-    @IBAction func notifications(_ sender: Any) {
-        self.performSegue(withIdentifier: "toNotifications", sender: self)
-    }
+    
     
 }
