@@ -1,28 +1,27 @@
 //
-//  ViewControllerFuel.swift
+//  ViewControllerChangePassword.swift
 //  VW2018
 //
-//  Created by Alumno on 26/04/18.
+//  Created by Alumno on 27/04/18.
 //  Copyright © 2018 Gekko. All rights reserved.
 //
 
 import UIKit
 
-class ViewControllerFuel: UIViewController {
+class ViewControllerChangePassword: UIViewController {
 
-    var crafter = Crafter()
+    var driver = Driver()
     
-    @IBOutlet weak var last: UILabel!
-    @IBOutlet weak var fuelType: UITextField!
-    @IBOutlet weak var liters: UITextField!
+    @IBOutlet weak var actual: UITextField!
+    @IBOutlet weak var new: UITextField!
+    @IBOutlet weak var new2: UITextField!
+    
     let defaultSession = URLSession(configuration: .default)
     var dataTask: URLSessionDataTask?
-    var toRegister = Fuel_reffils()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let x = crafter.fuel_reffils.count
-        last.text = crafter.fuel_reffils[x - 1].datetime
+
         // Do any additional setup after loading the view.
     }
 
@@ -42,27 +41,36 @@ class ViewControllerFuel: UIViewController {
     }
     */
     
-    @IBAction func recharge(_ sender: Any) {
-        if (fuelType.text?.isEmpty)! || (liters.text?.isEmpty)! {
-            let alert = UIAlertController(title: "Fallo en registro", message: "Debes incluir la cantidad en litros y el tipo de gasolina", preferredStyle: .alert)
+    @IBAction func changePass(_ sender: Any) {
+        if (actual.text?.isEmpty)! || (new.text?.isEmpty)! || (new2.text?.isEmpty)! {
+            
+            let alert = UIAlertController(title: "Contraseña", message: "Debe llenar todos los campos", preferredStyle: .alert)
             let action = UIAlertAction(title: "Ok", style: .default)
             alert.addAction(action)
             self.present(alert, animated: true)
         }
         else{
-            let x = Float(liters.text!)
-            if x != nil {
-                let now = NSDate()
-                let formater = DateFormatter()
-                formater.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                toRegister.datetime = formater.string(from: now as Date)
-                toRegister.type = fuelType.text!
-                toRegister.liters = x!
-                putRegister()
-                self.performSegue(withIdentifier: "back", sender: self)
+            if driver.password == actual.text {
+                if new.text == new2.text{
+                    
+                    driver.password = new2.text!
+                    self.putDriver()
+                    
+                    let alert = UIAlertController(title: "Contraseña", message: "La contraseña se ha cambiado exitosamente", preferredStyle: .alert)
+                    let action = UIAlertAction(title: "Ok", style: .default)
+                    alert.addAction(action)
+                    self.present(alert, animated: true)
+                }
+                else{
+                    let alert = UIAlertController(title: "Contraseña", message: "La contraseña nueva no corresponde a la confirmación", preferredStyle: .alert)
+                    let action = UIAlertAction(title: "Ok", style: .default)
+                    alert.addAction(action)
+                    self.present(alert, animated: true)
+                }
+                
             }
             else{
-                let alert = UIAlertController(title: "Fallo en registro", message: "La cantidad en litros debe ser un número", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Contraseña", message: "Su contraseña actual es incorrecta", preferredStyle: .alert)
                 let action = UIAlertAction(title: "Ok", style: .default)
                 alert.addAction(action)
                 self.present(alert, animated: true)
@@ -70,14 +78,13 @@ class ViewControllerFuel: UIViewController {
         }
     }
     
-    func putRegister(){
+    func putDriver(){
         if dataTask != nil {
             dataTask?.cancel()
         }
-        crafter.fuel_reffils.append(toRegister)
         let jsonEncoder = JSONEncoder()
-        let jsonData = try? jsonEncoder.encode(crafter)
-        let url = NSURL(string: "https://fake-backend-mobile-app.herokuapp.com/crafters/\(crafter.id)")
+        let jsonData = try? jsonEncoder.encode(driver)
+        let url = NSURL(string: "https://fake-backend-mobile-app.herokuapp.com/drivers/\(driver.id)")
         let request = NSMutableURLRequest(url: url! as URL)
         request.addValue("application/JSON", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "PUT"
@@ -94,7 +101,7 @@ class ViewControllerFuel: UIViewController {
             else{
                 if let httpsResponse = response as? HTTPURLResponse {
                     if httpsResponse.statusCode == 200 {
-                        print("Se hizo el put register")
+                        print("Se hizo el put driver")
                     }
                 }
             }

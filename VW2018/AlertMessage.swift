@@ -9,9 +9,11 @@
 import Foundation
 
 struct AlertMessage: Codable{
+    var id = Int()
     var type = String()
     var priority = String()
-    var message = String()
+    var message: String? = String()
     var lat = Double()
     var lng = Double()
+    var datetime = String()
 }

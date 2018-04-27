@@ -82,9 +82,12 @@ class ViewControllerPass: UIViewController {
     }
     
     func processData(data: Data){
-        
+        print(data)
         let jsonDecoder = JSONDecoder()
         let array = try? jsonDecoder.decode([Crafter].self, from: data)
+        if array == nil {
+            print("nil")
+        }
         self.crafter = array!.first!
         crafterButton.setTitle("Crafter \(crafter.id) - \(crafter.plates)", for: UIControlState.normal)
         if crafter.passengers == 1{

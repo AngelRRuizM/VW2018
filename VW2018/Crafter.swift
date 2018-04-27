@@ -28,5 +28,6 @@ struct Battery: Codable{
 
 struct Fuel_reffils: Codable{
     var type = String()
-    var date = String()
+    var datetime = String()
+    var liters = Float()
 }

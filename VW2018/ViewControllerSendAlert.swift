@@ -74,7 +74,9 @@ class ViewControllerSendAlert: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func sendAlert(_ sender: Any) {
-        
+        let now = NSDate()
+        let formater = DateFormatter()
+        formater.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
         if dataTask != nil {
             dataTask?.cancel()
@@ -95,6 +97,7 @@ class ViewControllerSendAlert: UIViewController, CLLocationManagerDelegate {
         }
         alertMessage.lat = lat
         alertMessage.lng = long
+        alertMessage.datetime = formater.string(from: now as Date)
         let jsonEncoder = JSONEncoder()
         let jsonData = try? jsonEncoder.encode(alertMessage)
         let url = NSURL(string: "https://fake-backend-mobile-app.herokuapp.com/alerts")
