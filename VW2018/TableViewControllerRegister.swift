@@ -15,6 +15,8 @@ class TableViewControllerRegister: UITableViewController {
     var dataTask: URLSessionDataTask?
     var crafter =  Crafter()
     var strings: [String] = [String]()
+    @IBOutlet var table: UITableView!
+    var selectedRow = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +28,29 @@ class TableViewControllerRegister: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        self.loadStrings()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if selectedRow == 4 {
+            let batteryView = segue.destination as! ViewControllerBattery
+            let x = crafter.batteries.count
+            batteryView.battery = crafter.batteries[x - 1]
+        }
+        else if selectedRow == 5{
+            let fuelView = segue.destination as! ViewControllerFuel
+            fuelView.crafter = crafter
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if(indexPath.row == 4){
+            selectedRow = 4
+            self.performSegue(withIdentifier: "toBattery", sender: self)
+        }
+        else if(indexPath.row == 5){
+            selectedRow = 5
+            self.performSegue(withIdentifier: "toFuel", sender: self)
+        }
     }
     
     func loadStrings(){
@@ -35,9 +59,8 @@ class TableViewControllerRegister: UITableViewController {
         strings.append(crafter.plates)
         strings.append(crafter.model)
         strings.append("Año \(crafter.year)")
-        strings[3] = "Año " + (String)(crafter.year)
-        strings[4] = "Batería (" + String(crafter.batteries[0].date) + ")"
-        strings[5] = "Gasolina"
+        strings.append("Batería")
+        strings.append("Gasolina")
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,7 +87,9 @@ class TableViewControllerRegister: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let row = indexPath.row
         cell.textLabel?.text = strings[row]
-        
+        if(row == 4 || row == 5){
+            cell.accessoryType = .disclosureIndicator
+        }
         return cell
     }
     
@@ -103,6 +128,9 @@ class TableViewControllerRegister: UITableViewController {
         let jsonDecoder = JSONDecoder()
         let array = try? jsonDecoder.decode([Crafter].self, from: data)
         self.crafter = array!.first!
+        self.loadStrings()
+        table.reloadData()
+        
     }
     
 

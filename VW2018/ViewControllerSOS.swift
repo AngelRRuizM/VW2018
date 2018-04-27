@@ -32,4 +32,24 @@ class ViewControllerSOS: UIViewController {
     }
     */
     
+    @IBAction func callFirefighters(_ sender: Any) {
+        let options = [UIApplicationOpenURLOptionUniversalLinksOnly: true]
+        if let url = URL(string: "tel:911"){
+            UIApplication.shared.open(url, options: options, completionHandler: nil)
+        }
+    }
+    
+    @IBAction func callSecurity(_ sender: Any) {
+        let options = [UIApplicationOpenURLOptionUniversalLinksOnly: true]
+        if let url = URL(string: "tel:911"){
+            UIApplication.shared.open(url, options: options, completionHandler: nil)
+        }
+    }
+    
+    @IBAction func callParamedics(_ sender: Any) {
+        let options = [UIApplicationOpenURLOptionUniversalLinksOnly: true]
+        if let url = URL(string: "tel:911"){
+            UIApplication.shared.open(url, options: options, completionHandler: nil)
+        }
+    }
 }

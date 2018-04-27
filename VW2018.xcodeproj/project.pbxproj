@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		FB3813552092503800D64079 /* Crafter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3813542092503800D64079 /* Crafter.swift */; };
 		FB38135920926DDC00D64079 /* TableViewControllerRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB38135820926DDC00D64079 /* TableViewControllerRegister.swift */; };
+		FB38135B2092811600D64079 /* ViewControllerBattery.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB38135A2092811600D64079 /* ViewControllerBattery.swift */; };
+		FB38135D20928AB000D64079 /* ViewControllerSendAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB38135C20928AB000D64079 /* ViewControllerSendAlert.swift */; };
+		FB38135F20928E7700D64079 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB38135E20928E7700D64079 /* Alert.swift */; };
+		FB3813622092918200D64079 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3813612092918200D64079 /* MapKit.framework */; };
+		FB3813642092AC3C00D64079 /* ViewControllerFuel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3813632092AC3C00D64079 /* ViewControllerFuel.swift */; };
 		FB84A2A32090FB1D00522934 /* ViewControllerAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB84A2A22090FB1D00522934 /* ViewControllerAlert.swift */; };
 		FBC6D9C8208FFEE7008ACADD /* ViewControllerRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC6D9C7208FFEE7008ACADD /* ViewControllerRegister.swift */; };
 		FBC6D9CA20900120008ACADD /* ViewControllerPerformance.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC6D9C920900120008ACADD /* ViewControllerPerformance.swift */; };
@@ -47,6 +52,11 @@
 /* Begin PBXFileReference section */
 		FB3813542092503800D64079 /* Crafter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crafter.swift; sourceTree = "<group>"; };
 		FB38135820926DDC00D64079 /* TableViewControllerRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerRegister.swift; sourceTree = "<group>"; };
+		FB38135A2092811600D64079 /* ViewControllerBattery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerBattery.swift; sourceTree = "<group>"; };
+		FB38135C20928AB000D64079 /* ViewControllerSendAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerSendAlert.swift; sourceTree = "<group>"; };
+		FB38135E20928E7700D64079 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		FB3813612092918200D64079 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		FB3813632092AC3C00D64079 /* ViewControllerFuel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFuel.swift; sourceTree = "<group>"; };
 		FB84A2A22090FB1D00522934 /* ViewControllerAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAlert.swift; sourceTree = "<group>"; };
 		FBC6D9C7208FFEE7008ACADD /* ViewControllerRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerRegister.swift; sourceTree = "<group>"; };
 		FBC6D9C920900120008ACADD /* ViewControllerPerformance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPerformance.swift; sourceTree = "<group>"; };
@@ -76,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB3813622092918200D64079 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +107,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FB3813602092918100D64079 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FB3813612092918200D64079 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FBDA507B208FAD79003A94FC = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +122,7 @@
 				FBDA509B208FAD7A003A94FC /* VW2018Tests */,
 				FBDA50A6208FAD7A003A94FC /* VW2018UITests */,
 				FBDA5085208FAD7A003A94FC /* Products */,
+				FB3813602092918100D64079 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,6 +139,7 @@
 		FBDA5086208FAD7A003A94FC /* VW2018 */ = {
 			isa = PBXGroup;
 			children = (
+				FB3813632092AC3C00D64079 /* ViewControllerFuel.swift */,
 				FBC6D9CD20901049008ACADD /* ViewControllerSOS.swift */,
 				FBDA50B9208FD0A2003A94FC /* ViewControllerPass.swift */,
 				FBD0AEF2208FDB6900E6F6CB /* ViewControllerProfile.swift */,
@@ -130,6 +151,9 @@
 				FBDA5087208FAD7A003A94FC /* AppDelegate.swift */,
 				FBDA5089208FAD7A003A94FC /* ViewController.swift */,
 				FBDA508B208FAD7A003A94FC /* Main.storyboard */,
+				FB38135C20928AB000D64079 /* ViewControllerSendAlert.swift */,
+				FB38135E20928E7700D64079 /* Alert.swift */,
+				FB38135A2092811600D64079 /* ViewControllerBattery.swift */,
 				FB3813542092503800D64079 /* Crafter.swift */,
 				FB38135820926DDC00D64079 /* TableViewControllerRegister.swift */,
 				FB84A2A22090FB1D00522934 /* ViewControllerAlert.swift */,
@@ -292,6 +316,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB38135B2092811600D64079 /* ViewControllerBattery.swift in Sources */,
 				FBDA50B6208FB580003A94FC /* ViewControllerCrafter.swift in Sources */,
 				FBDA50BA208FD0A2003A94FC /* ViewControllerPass.swift in Sources */,
 				FBDA508A208FAD7A003A94FC /* ViewController.swift in Sources */,
@@ -301,9 +326,12 @@
 				FB84A2A32090FB1D00522934 /* ViewControllerAlert.swift in Sources */,
 				FB3813552092503800D64079 /* Crafter.swift in Sources */,
 				FBC6D9C8208FFEE7008ACADD /* ViewControllerRegister.swift in Sources */,
+				FB38135D20928AB000D64079 /* ViewControllerSendAlert.swift in Sources */,
 				FB38135920926DDC00D64079 /* TableViewControllerRegister.swift in Sources */,
 				FBD0AEF3208FDB6900E6F6CB /* ViewControllerProfile.swift in Sources */,
 				FBC6D9CE20901049008ACADD /* ViewControllerSOS.swift in Sources */,
+				FB38135F20928E7700D64079 /* Alert.swift in Sources */,
+				FB3813642092AC3C00D64079 /* ViewControllerFuel.swift in Sources */,
 				FBD0AEF5208FDC5500E6F6CB /* ViewControllerNotifications.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
