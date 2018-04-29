@@ -70,6 +70,7 @@ class ViewControllerChangePassword: UIViewController {
                 
             }
             else{
+                print(driver)
                 let alert = UIAlertController(title: "Contraseña", message: "Su contraseña actual es incorrecta", preferredStyle: .alert)
                 let action = UIAlertAction(title: "Ok", style: .default)
                 alert.addAction(action)

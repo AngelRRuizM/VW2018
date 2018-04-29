@@ -17,3 +17,9 @@ struct Driver: Codable{
     var rating = Int()
 }
 
+struct Statistics: Codable{
+    var driverId = Int()
+    var type = String()
+    var value = Int()
+    var date = String()
+}

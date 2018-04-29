@@ -73,13 +73,13 @@ class ViewControllerCrafter: UIViewController, UIPickerViewDataSource, UIPickerV
                     }
                     else{
                         DispatchQueue.main.async {
-                            self.errorsShow(error: "Response code")
+                            self.logOut()
                         }
                     }
                 }
                 else{
                     DispatchQueue.main.async {
-                        self.errorsShow(error: "Response")
+                        self.logOut()
                     }
                 }
             }
@@ -100,11 +100,17 @@ class ViewControllerCrafter: UIViewController, UIPickerViewDataSource, UIPickerV
         picker.reloadAllComponents()
     }
     
-    func errorsShow(error: String){
-        let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
+    func logOut(){
+        let x = UserDefaults.standard
+        x.set(nil, forKey: "email")
+        x.synchronize()
+        x.set(nil, forKey: "crafter")
+        x.synchronize()
+        let alert = UIAlertController(title: "Error en el servidor", message: "Hubo un error en el servidor, vuelva a intentar mas tarde", preferredStyle: .alert)
         let action = UIAlertAction(title: "Ok", style: .default)
         alert.addAction(action)
         self.present(alert, animated: true)
+        self.performSegue(withIdentifier: "toLogIn", sender: self)
     }
     
     override func didReceiveMemoryWarning() {

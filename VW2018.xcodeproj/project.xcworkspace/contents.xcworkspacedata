@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../../../../Desktop/SwiftChart-master">
+   </FileRef>
+   <FileRef
       location = "self:VW2018.xcodeproj">
    </FileRef>
 </Workspace>

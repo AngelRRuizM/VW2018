@@ -22,6 +22,7 @@ class ViewControllerProfile: UIViewController{
     var dataTask: URLSessionDataTask?
     var driver = Driver()
     var changePass = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -33,7 +34,12 @@ class ViewControllerProfile: UIViewController{
         // Dispose of any resources that can be recreated.
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if changePass {
+            let view = segue.destination as! ViewControllerChangePassword
+            view.driver = driver
+        }
+    }
     
     /*
     // MARK: - Navigation
@@ -115,6 +121,10 @@ class ViewControllerProfile: UIViewController{
         changePass = false
         let x = UserDefaults.standard
         x.set(nil, forKey: "email")
+        x.synchronize()
+        x.set(nil, forKey: "crafter")
+        x.synchronize()
+        x.set(nil, forKey: "id")
         x.synchronize()
         self.performSegue(withIdentifier: "toLogIn", sender: self)
     }

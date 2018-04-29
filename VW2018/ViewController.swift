@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     
     let defaultSession = URLSession(configuration: .default)
     var dataTask: URLSessionDataTask?
+    var driver = Driver()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,9 +77,15 @@ class ViewController: UIViewController {
         let json = try? JSONSerialization.jsonObject(with: data, options: [])
         if let array = json as? [Any]{
             if array.count == 1{
+                let jsonDecoder = JSONDecoder()
+                let array = try? jsonDecoder.decode([Driver].self, from: data)
+                
+                self.driver = array!.first!
                 //Hace set del email.
                 let x = UserDefaults.standard
                 x.set(username.text!, forKey: "email")
+                x.synchronize()
+                x.set(driver.id, forKey: "id")
                 x.synchronize()
                 self.performSegue(withIdentifier: "toCrafter", sender: self)
                 //Agregar lo de guardar en la plist
