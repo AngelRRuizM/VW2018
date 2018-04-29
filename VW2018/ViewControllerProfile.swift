@@ -51,6 +51,7 @@ class ViewControllerProfile: UIViewController{
     }
     */
 
+    //Hace get del driver
     func getDriver(){
         if dataTask != nil {
             dataTask?.cancel()
@@ -59,7 +60,7 @@ class ViewControllerProfile: UIViewController{
         let email = UserDefaults.standard.string(forKey: "email")?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         let url = NSURL(string: "https://fake-backend-mobile-app.herokuapp.com/drivers?email=\(email!)")
         let request = URLRequest(url: url! as URL)
-        
+        //Petición a la URL especificada, con el email definido.
         dataTask = defaultSession.dataTask(with: request){
             data, response, error in
             DispatchQueue.main.async{
@@ -69,6 +70,7 @@ class ViewControllerProfile: UIViewController{
                 print(error.localizedDescription)
             }
             else{
+                //Si la petición es exitosa, llama a procesar la información
                 if let httpsResponse = response as? HTTPURLResponse {
                     if httpsResponse.statusCode == 200 {
                         DispatchQueue.main.async {
@@ -81,6 +83,7 @@ class ViewControllerProfile: UIViewController{
         dataTask?.resume()
     }
     
+    //Hace el procesamiento de la información del conductor
     func processData(data: Data){
         print(data)
         let jsonDecoder = JSONDecoder()
@@ -91,7 +94,7 @@ class ViewControllerProfile: UIViewController{
         self.setStars()
     }
     
-    
+    //Pone las estrellas de acuerdo al rating del conductor
     func setStars(){
         if driver.rating >= 1{
             star1.image = #imageLiteral(resourceName: "star")
@@ -110,12 +113,13 @@ class ViewControllerProfile: UIViewController{
         }
     }
     
+    //Hace cambio de contraseña, cambiando la vista
     @IBAction func changePass(_ sender: Any) {
         changePass = true
         self.performSegue(withIdentifier: "toChangePassword", sender: self)
     }
     
-    
+    //Logout
     @IBAction func logOut(_ sender: Any) {
         //Hace set del email.
         changePass = false

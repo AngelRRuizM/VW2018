@@ -42,16 +42,26 @@ class ViewControllerFuel: UIViewController {
     }
     */
     
+    //Verifica si el string es un número o no
+    func isNotNumeric(liters: String) -> Bool{
+        return Double(liters) == nil
+    }
+    
+    //Función para la recarga de gasolina
     @IBAction func recharge(_ sender: Any) {
-        if (fuelType.text?.isEmpty)! || (liters.text?.isEmpty)! {
-            let alert = UIAlertController(title: "Fallo en registro", message: "Debes incluir la cantidad en litros y el tipo de gasolina", preferredStyle: .alert)
+        //Hace validación
+        if (fuelType.text?.isEmpty)! || (liters.text?.isEmpty)! || (self.isNotNumeric(liters: liters.text!)) {
+            //Si no pasa, da un mensaje de error
+            let alert = UIAlertController(title: "Fallo en registro", message: "Debes incluir la cantidad en litros (numérico) y el tipo de gasolina", preferredStyle: .alert)
             let action = UIAlertAction(title: "Ok", style: .default)
             alert.addAction(action)
             self.present(alert, animated: true)
         }
         else{
+            //Realiza la carga
             let x = Float(liters.text!)
             if x != nil {
+                //Cálculo de fecha actual para la carga
                 let now = NSDate()
                 let formater = DateFormatter()
                 formater.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -62,6 +72,7 @@ class ViewControllerFuel: UIViewController {
                 self.performSegue(withIdentifier: "back", sender: self)
             }
             else{
+                //Hubo algún error
                 let alert = UIAlertController(title: "Fallo en registro", message: "La cantidad en litros debe ser un número", preferredStyle: .alert)
                 let action = UIAlertAction(title: "Ok", style: .default)
                 alert.addAction(action)
@@ -70,6 +81,7 @@ class ViewControllerFuel: UIViewController {
         }
     }
     
+    //Realiza la petición para agregar la última recarga al back
     func putRegister(){
         if dataTask != nil {
             dataTask?.cancel()
@@ -77,6 +89,7 @@ class ViewControllerFuel: UIViewController {
         crafter.fuel_reffils.append(toRegister)
         let jsonEncoder = JSONEncoder()
         let jsonData = try? jsonEncoder.encode(crafter)
+        //URL para la petición
         let url = NSURL(string: "https://fake-backend-mobile-app.herokuapp.com/crafters/\(crafter.id)")
         let request = NSMutableURLRequest(url: url! as URL)
         request.addValue("application/JSON", forHTTPHeaderField: "Content-Type")
@@ -88,13 +101,13 @@ class ViewControllerFuel: UIViewController {
             DispatchQueue.main.async{
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
             }
+            //Si hay error, lo muestra
             if let error = error {
                 print(error.localizedDescription)
             }
             else{
                 if let httpsResponse = response as? HTTPURLResponse {
                     if httpsResponse.statusCode == 200 {
-                        print("Se hizo el put register")
                     }
                 }
             }

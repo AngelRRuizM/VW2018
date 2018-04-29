@@ -21,8 +21,6 @@ class ViewControllerChangePassword: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,15 +39,18 @@ class ViewControllerChangePassword: UIViewController {
     }
     */
     
+    //Acción activada por el botón
     @IBAction func changePass(_ sender: Any) {
+        //Verificación de campos
         if (actual.text?.isEmpty)! || (new.text?.isEmpty)! || (new2.text?.isEmpty)! {
-            
+            //Mesaje de error
             let alert = UIAlertController(title: "Contraseña", message: "Debe llenar todos los campos", preferredStyle: .alert)
             let action = UIAlertAction(title: "Ok", style: .default)
             alert.addAction(action)
             self.present(alert, animated: true)
         }
         else{
+            //Verificación de validez
             if driver.password == actual.text {
                 if new.text == new2.text{
                     
@@ -79,12 +80,14 @@ class ViewControllerChangePassword: UIViewController {
         }
     }
     
+    //Si sí es correcta, se llega a esta función
     func putDriver(){
         if dataTask != nil {
             dataTask?.cancel()
         }
         let jsonEncoder = JSONEncoder()
         let jsonData = try? jsonEncoder.encode(driver)
+        //URL para petición
         let url = NSURL(string: "https://fake-backend-mobile-app.herokuapp.com/drivers/\(driver.id)")
         let request = NSMutableURLRequest(url: url! as URL)
         request.addValue("application/JSON", forHTTPHeaderField: "Content-Type")
@@ -100,9 +103,9 @@ class ViewControllerChangePassword: UIViewController {
                 print(error.localizedDescription)
             }
             else{
+                //Se actualizó la información correctamente
                 if let httpsResponse = response as? HTTPURLResponse {
                     if httpsResponse.statusCode == 200 {
-                        print("Se hizo el put driver")
                     }
                 }
             }

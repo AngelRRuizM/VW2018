@@ -24,9 +24,11 @@ class ViewControllerSendAlert: UIViewController, CLLocationManagerDelegate {
     var manager = CLLocationManager()
     var lat: Double = 0.0
     var long: Double = 0.0
+    
+    //Precarga la vista
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //Muestra la imagen del tipo de alerta para evitar errores del usuario
         alertLabel.text = alertType
         manager.delegate = self
         if manager.responds(to: #selector(CLLocationManager.requestWhenInUseAuthorization)) {
@@ -43,8 +45,8 @@ class ViewControllerSendAlert: UIViewController, CLLocationManagerDelegate {
         }
         
         manager.desiredAccuracy = kCLLocationAccuracyBest
+        //Sí se puede manejar ubicaciones
         if CLLocationManager.locationServicesEnabled() {
-            print("llegue aqui")
             manager.startUpdatingLocation()
         }
         // Do any additional setup after loading the view.
@@ -66,6 +68,7 @@ class ViewControllerSendAlert: UIViewController, CLLocationManagerDelegate {
     }
     */
 
+    //Calcula latitud y longitud
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation:CLLocation = locations[0] as CLLocation
         manager.stopUpdatingLocation()
@@ -73,6 +76,7 @@ class ViewControllerSendAlert: UIViewController, CLLocationManagerDelegate {
         long = userLocation.coordinate.longitude
     }
     
+    //Manda la alerta y hace la petición dependiendo de la fecha calculada, el tipo de alerta seleccionado por el usuario.
     @IBAction func sendAlert(_ sender: Any) {
         let now = NSDate()
         let formater = DateFormatter()
@@ -84,9 +88,11 @@ class ViewControllerSendAlert: UIViewController, CLLocationManagerDelegate {
         var alertMessage = AlertMessage()
         alertMessage.type = alertType
         if highPriority {
+            //Alta prioridad
             alertMessage.priority = "High"
         }
         else{
+            //Baja prioridad
             alertMessage.priority = "Low"
         }
         if !(moreInfo.text!.isEmpty) {
@@ -95,6 +101,7 @@ class ViewControllerSendAlert: UIViewController, CLLocationManagerDelegate {
         else{
             alertMessage.message = ""
         }
+        //Ubicación
         alertMessage.lat = lat
         alertMessage.lng = long
         alertMessage.datetime = formater.string(from: now as Date)
@@ -117,7 +124,6 @@ class ViewControllerSendAlert: UIViewController, CLLocationManagerDelegate {
             else{
                 if let httpsResponse = response as? HTTPURLResponse {
                     if httpsResponse.statusCode == 200 {
-                        print("Se hizo el post")
                     }
                 }
             }

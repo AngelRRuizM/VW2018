@@ -18,6 +18,8 @@ class ViewControllerBattery: UIViewController {
     @IBOutlet weak var modelo: UILabel!
     @IBOutlet weak var fecha: UILabel!
     
+    
+    //Solamente carga el texto de cada label de acuerdo a la batería del crafter
     override func viewDidLoad() {
         super.viewDidLoad()
         

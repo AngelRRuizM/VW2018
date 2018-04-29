@@ -17,18 +17,22 @@ class ViewControllerCrafterRegister: UIViewController, UIPickerViewDataSource, U
     
     @IBOutlet weak var picker: UIPickerView!
     
+    //Componentes del pirckerview
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
+    //Cantidad de filas en el pickerview
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return pickerData.count
     }
     
+    //Texto para cada fila
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return (pickerData[row] as! String)
     }
     
+    //Establece datasource y delegate, además de precargar las crafters
     override func viewDidLoad() {
         super.viewDidLoad()
         picker.dataSource = self
@@ -42,6 +46,7 @@ class ViewControllerCrafterRegister: UIViewController, UIPickerViewDataSource, U
         // Dispose of any resources that can be recreated.
     }
     
+    //Precarga los crafters
     func getCrafters(){
         if dataTask != nil {
             dataTask?.cancel()
@@ -58,6 +63,7 @@ class ViewControllerCrafterRegister: UIViewController, UIPickerViewDataSource, U
                 print(error.localizedDescription)
             }
             else{
+                //Si es exitoso, procesa la información.
                 if let httpsResponse = response as? HTTPURLResponse {
                     if httpsResponse.statusCode == 200 {
                         DispatchQueue.main.async {
@@ -80,6 +86,7 @@ class ViewControllerCrafterRegister: UIViewController, UIPickerViewDataSource, U
         dataTask?.resume()
     }
     
+    //Procesa la información para conseguir las placas de los crafters, además de recargar el componente del picker para que aparezca la información actualizada
     func processData(data: Data){
         let json = try? JSONSerialization.jsonObject(with: data, options: [])
         if let array = json as? NSArray{
@@ -93,6 +100,7 @@ class ViewControllerCrafterRegister: UIViewController, UIPickerViewDataSource, U
         picker.reloadAllComponents()
     }
     
+    //Muestra errores
     func errorsShow(error: String){
         let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
         let action = UIAlertAction(title: "Ok", style: .default)
@@ -112,7 +120,7 @@ class ViewControllerCrafterRegister: UIViewController, UIPickerViewDataSource, U
     */
 
     
-    
+    //Maneja la selección de opciones en el picker.
     @IBAction func seleccionar(_ sender: Any) {
         let x = UserDefaults.standard
         x.set( (pickerData[picker.selectedRow(inComponent: 0)] as! String), forKey: "registerCrafter")

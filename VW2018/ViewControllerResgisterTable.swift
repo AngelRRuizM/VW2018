@@ -17,6 +17,7 @@ class ViewControllerResgisterTable: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var table: UITableView!
     var selectedRow = 0
     
+    //Jala el crafter seleccionado para poder obtener la información del registro
     override func viewDidLoad() {
         super.viewDidLoad()
         table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -31,6 +32,7 @@ class ViewControllerResgisterTable: UIViewController, UITableViewDelegate, UITab
         // Dispose of any resources that can be recreated.
     }
     
+    //Hace la preparación para el cambio de pantalla dependiendo de cuál celda se presiona
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if selectedRow == 4 {
             let batteryView = segue.destination as! ViewControllerBattery
@@ -43,6 +45,7 @@ class ViewControllerResgisterTable: UIViewController, UITableViewDelegate, UITab
         }
     }
     
+    //Realiza las segues donde corresponde
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if(indexPath.row == 4){
             selectedRow = 4
@@ -54,6 +57,7 @@ class ViewControllerResgisterTable: UIViewController, UITableViewDelegate, UITab
         }
     }
     
+    //Precarga los strings puesto que es algo definido
     func loadStrings(){
         strings.append("Crafter \(crafter.id)")
         strings.append(crafter.plates)
@@ -63,14 +67,17 @@ class ViewControllerResgisterTable: UIViewController, UITableViewDelegate, UITab
         strings.append("Gasolina")
     }
     
+    //La cantidad de filas es la cantidad de strings
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return strings.count
     }
     
+    //Título para la tabla
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Mantenimiento"
+        return "Registro"
     }
     
+    //Realiza petición de get para obtener el crafter seleccionado
     func getCrafter(){
         if dataTask != nil {
             dataTask?.cancel()
@@ -89,6 +96,7 @@ class ViewControllerResgisterTable: UIViewController, UITableViewDelegate, UITab
                 print(error.localizedDescription)
             }
             else{
+                //Si el get es exitoso, procesa la información
                 if let httpsResponse = response as? HTTPURLResponse {
                     if httpsResponse.statusCode == 200 {
                         DispatchQueue.main.async {
@@ -101,17 +109,18 @@ class ViewControllerResgisterTable: UIViewController, UITableViewDelegate, UITab
         dataTask?.resume()
     }
     
-    
-    
+    //Procesa el JSON para que sea manejado como crafter
     func processData(data: Data){
         let jsonDecoder = JSONDecoder()
         let array = try? jsonDecoder.decode([Crafter].self, from: data)
         self.crafter = array!.first!
         self.loadStrings()
+        //Vuelve a cargar la tabla porque la información cambió
         table.reloadData()
         
     }
     
+    //Define la información por celda
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let row = indexPath.row

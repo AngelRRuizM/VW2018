@@ -19,7 +19,7 @@ class ViewControllerPerformance: UIViewController, UIPickerViewDelegate, UIPicke
     var stats = [Statistics]()
     
     
-    
+    //Hace el precargado, donde se definen los valores disponibles para el pickerview
     override func viewDidLoad() {
         super.viewDidLoad()
         lapse.add("1 semana")
@@ -30,7 +30,6 @@ class ViewControllerPerformance: UIViewController, UIPickerViewDelegate, UIPicke
         category.add("Retrasos")
         picker.dataSource = self
         picker.delegate = self
-        
         doQuery()
 
         // Do any additional setup after loading the view.
@@ -54,10 +53,12 @@ class ViewControllerPerformance: UIViewController, UIPickerViewDelegate, UIPicke
     }
     */
 
+    //Número de componentes en el picker
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 2
     }
     
+    //Número de filas en el picker, que varían de acuerdo al componente
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if component == 0{
             return 2
@@ -70,6 +71,7 @@ class ViewControllerPerformance: UIViewController, UIPickerViewDelegate, UIPicke
         }
     }
     
+    //Define los strings para los componentes
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if component == 0 {
             return (category[row] as! String)
@@ -82,23 +84,28 @@ class ViewControllerPerformance: UIViewController, UIPickerViewDelegate, UIPicke
         }
     }
     
+    //Obtiene las fechas con relación a la fecha actual de acuerdo a la fila escogida en el componente.
     func getDateByLapse() -> String{
         let formater = DateFormatter()
+        //Define el formato de la fecha
         formater.dateFormat = "yyyy-MM-dd"
         
+        //Lapso de 1 semana
         if picker.selectedRow(inComponent: 1) == 0{
             let pastWeek = Date.init(timeIntervalSinceNow: -604800)
             return formater.string(from: pastWeek)
-            
         }
+            //Lapso de un mes
         else if picker.selectedRow(inComponent: 1) == 1{
             let pastMonth = Date.init(timeIntervalSinceNow: -2592000)
             return formater.string(from: pastMonth)
         }
+            //Lapso de 3 meses
         else if picker.selectedRow(inComponent: 1) == 2{
             let past3Months = Date.init(timeIntervalSinceNow: -7776000)
             return formater.string(from: past3Months)
         }
+            //Lapso de 1 año
         else if picker.selectedRow(inComponent: 1) == 3{
             let pastYear = Date.init(timeIntervalSinceNow: -31536000)
             return formater.string(from: pastYear)
@@ -108,9 +115,10 @@ class ViewControllerPerformance: UIViewController, UIPickerViewDelegate, UIPicke
         }
     }
     
+    //Define el tipo de información a mostrar de acuerdo al tipo seleccionado
     func getType() -> String{
         if picker.selectedRow(inComponent: 0) == 0 {
-            return "break"
+            return "brake"
         }
         else if picker.selectedRow(inComponent: 0) == 1 {
             return "delay"
@@ -120,12 +128,13 @@ class ViewControllerPerformance: UIViewController, UIPickerViewDelegate, UIPicke
         }
     }
     
+    //Realiza la query para obtener el rendimiento correspondiente al tipo y fecha de la información
     func doQuery(){
         let id = UserDefaults.standard.string(forKey: "id")
         let date = getDateByLapse()
         let type = getType();
         let query = "drivers/\(id!)/statistics?_sort=date&type=\(type)&date_gte=\(date)"
-        print(query)
+        //print(query as Any)
         getStatistics(query: query)
     }
     
@@ -133,12 +142,14 @@ class ViewControllerPerformance: UIViewController, UIPickerViewDelegate, UIPicke
         doQuery()
     }
     
+    //Hace el get con la query y el URL adecuado
     func getStatistics(query: String!){
         if dataTask != nil {
             dataTask?.cancel()
         }
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        let url = NSURL(string: "https://fake-backend-mobile-app.herokuapp.com/\(query)")
+        let q = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        let url = NSURL(string: "https://fake-backend-mobile-app.herokuapp.com/\(q)")
         let request = URLRequest(url: url! as URL)
         
         dataTask = defaultSession.dataTask(with: request){
@@ -150,6 +161,7 @@ class ViewControllerPerformance: UIViewController, UIPickerViewDelegate, UIPicke
                 print(error.localizedDescription)
             }
             else{
+                //Si el resultado es correcto, entonces procesa la información
                 if let httpsResponse = response as? HTTPURLResponse {
                     if httpsResponse.statusCode == 200 {
                         DispatchQueue.main.async {
@@ -162,15 +174,36 @@ class ViewControllerPerformance: UIViewController, UIPickerViewDelegate, UIPicke
         dataTask?.resume()
     }
     
+    //Procesa el json como estadística
     func processData(data: Data){
         let jsonDecoder = JSONDecoder()
         stats = try! jsonDecoder.decode([Statistics].self, from: data)
+        //Llama el "constructor" de la gráfica
         self.buildChart()
     }
     
+    //Realiza la gráfica de acuerdo a las estadísticas
     func buildChart(){
-        let series = ChartSeries([0, 6, 2, 8, 4, 7, 3, 10, 8])
-        series.color = ChartColors.greenColor()
+        var xs = [ Double]()
+        var labels = [Double]()
+        var labelString = [String]()
+        var i = 0
+        for stat in stats {
+            xs.append(Double(stat.value))
+            labels.append(Double(i))
+            labelString.append(stat.date)
+            i = i + 1
+        }
+        //Reinicia la gráfica
+        chart.removeAllSeries()
+        let series = ChartSeries(xs)
+        //Define el color
+        series.color = ChartColors.blueColor()
+        chart.xLabels = labels
+        chart.xLabelsFormatter = {
+            (labelIndex: Int, labelValue: Double) -> String in
+            return labelString[labelIndex]
+        }
         chart.add(series)
     }
     

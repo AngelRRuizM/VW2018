@@ -26,7 +26,19 @@ class ViewControllerPass: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getCrafter()
+        
+    }
+    
+    //Inicia el timer cuando la view llega a la jerarquía de views
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(false)
         timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(putPassengers), userInfo: nil, repeats: true)
+    }
+    
+    //Invalida el timer cuando la view deja la jerarquía de views
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(false)
+        timer.invalidate()
     }
 
     override func didReceiveMemoryWarning() {
@@ -125,6 +137,7 @@ class ViewControllerPass: UIViewController {
         }
     }
     
+    //De acuerdo al timer realiza el put para actualizar la cantidad de pasajeros en un crafter
     @objc func putPassengers(){
         
         if dataTask != nil {
@@ -132,25 +145,27 @@ class ViewControllerPass: UIViewController {
         }
         crafter.passengers = passengers
         let jsonEncoder = JSONEncoder()
+        //Hace encode del json
         let jsonData = try? jsonEncoder.encode(crafter)
+        //URL para la petición
         let url = NSURL(string: "https://fake-backend-mobile-app.herokuapp.com/crafters/\(crafter.id)")
         let request = NSMutableURLRequest(url: url! as URL)
         request.addValue("application/JSON", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "PUT"
         request.httpBody = jsonData
-        
         dataTask = defaultSession.dataTask(with: request as URLRequest){
             data, response, error in
             DispatchQueue.main.async{
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
             }
+            //Checa errores
             if let error = error {
                 print(error.localizedDescription)
             }
             else{
                 if let httpsResponse = response as? HTTPURLResponse {
                     if httpsResponse.statusCode == 200 {
-                        print("Se hizo el put")
+                        //Fue exitoso
                     }
                 }
             }

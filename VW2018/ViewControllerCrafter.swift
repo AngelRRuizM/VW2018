@@ -16,24 +16,28 @@ class ViewControllerCrafter: UIViewController, UIPickerViewDataSource, UIPickerV
     var dataToProcess = Data()
     @IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var leaveCrafter: UIButton!
-    
+    //Secciones o componentes en el picker.
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    
+    //Cantidad de filas en el picker
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return pickerData.count
     }
-    
+    //Nombre de la fila del picker
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return (pickerData[row] as! String)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Carga el dataSource
         picker.dataSource = self
+        //Se pone a sí mismo como delegate
         picker.delegate = self
+        //Carga los crafters disponibles
         self.getCrafters()
+        //Verifica si ya hay un crafter seleccionado por el conductor
         if UserDefaults.standard.string(forKey: "crafter") != nil {
             leaveCrafter.isHidden = false
         }
@@ -54,6 +58,7 @@ class ViewControllerCrafter: UIViewController, UIPickerViewDataSource, UIPickerV
             dataTask?.cancel()
         }
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        //URL  a la que se le hace el request para el get
         let url = NSURL(string: "https://fake-backend-mobile-app.herokuapp.com/crafters")
         let request = URLRequest(url: url! as URL)
         dataTask = defaultSession.dataTask(with: request){
@@ -61,10 +66,12 @@ class ViewControllerCrafter: UIViewController, UIPickerViewDataSource, UIPickerV
             DispatchQueue.main.async{
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
             }
+            //Manejo de errores
             if let error = error {
                 print(error.localizedDescription)
             }
             else{
+                //Procesa la información si el resultado de la petición es exitoso
                 if let httpsResponse = response as? HTTPURLResponse {
                     if httpsResponse.statusCode == 200 {
                         DispatchQueue.main.async {
@@ -72,6 +79,7 @@ class ViewControllerCrafter: UIViewController, UIPickerViewDataSource, UIPickerV
                         }
                     }
                     else{
+                        //Si no es válida la petición, algo raro sucedió y mejor hace logout
                         DispatchQueue.main.async {
                             self.logOut()
                         }
@@ -87,6 +95,7 @@ class ViewControllerCrafter: UIViewController, UIPickerViewDataSource, UIPickerV
         dataTask?.resume()
     }
     
+    //Función que procesa la información de los crafters y hace manejo de las placas para mostrarlas
     func processData(data: Data){
         let json = try? JSONSerialization.jsonObject(with: data, options: [])
         if let array = json as? NSArray{
@@ -100,10 +109,13 @@ class ViewControllerCrafter: UIViewController, UIPickerViewDataSource, UIPickerV
         picker.reloadAllComponents()
     }
     
+    //Hace logout, se llama cuando hubo algún error "imposible"
     func logOut(){
         let x = UserDefaults.standard
+        //Mata la llave
         x.set(nil, forKey: "email")
         x.synchronize()
+        //Mata el crafter
         x.set(nil, forKey: "crafter")
         x.synchronize()
         let alert = UIAlertController(title: "Error en el servidor", message: "Hubo un error en el servidor, vuelva a intentar mas tarde", preferredStyle: .alert)
@@ -129,8 +141,8 @@ class ViewControllerCrafter: UIViewController, UIPickerViewDataSource, UIPickerV
     }
     */
     
+    //Función que hace set del crafter en los user defaults
     @IBAction func selectCrafter(_ sender: Any) {
-        
         let x = UserDefaults.standard
         x.set( (pickerData[picker.selectedRow(inComponent: 0)] as! String), forKey: "crafter")
         print( (pickerData[picker.selectedRow(inComponent: 0)] as! String) )
@@ -138,6 +150,7 @@ class ViewControllerCrafter: UIViewController, UIPickerViewDataSource, UIPickerV
         self.performSegue(withIdentifier: "toTabBar", sender: self)
     }
     
+    //Mata el user default del crafter
     @IBAction func leaveCrafterAction(_ sender: Any) {
         let x = UserDefaults.standard
         x.set( nil, forKey: "crafter")

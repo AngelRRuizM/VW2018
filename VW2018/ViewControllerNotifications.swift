@@ -18,8 +18,8 @@ class ViewControllerNotifications: UIViewController, UITableViewDataSource, UITa
     var alerts = [AlertMessage]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Precarga las notificaciones
         self.getNotifications()
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,16 +31,18 @@ class ViewControllerNotifications: UIViewController, UITableViewDataSource, UITa
         return alerts.count
     }
     
+    //Define el contenido de las celdas
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let row = indexPath.row
         cell.textLabel?.text = alerts[row].type
         cell.detailTextLabel?.text = alerts[row].datetime
+        //Puesto que la prioridad es alta o baja, pone las imágenes en la celda de acuerdo a lo correspondiente
         if(alerts[row].priority == "Alta" || alerts[row].priority == "High"){
-           cell.imageView?.image = #imageLiteral(resourceName: "high")
+           cell.imageView?.image = #imageLiteral(resourceName: "HighPriorityIcon")
         }
         else if(alerts[row].priority == "Baja" || alerts[row].priority == "Low"){
-            cell.imageView?.image = #imageLiteral(resourceName: "low")
+            cell.imageView?.image = #imageLiteral(resourceName: "LowPriorityIcon")
         }
         
         return cell
@@ -58,11 +60,13 @@ class ViewControllerNotifications: UIViewController, UITableViewDataSource, UITa
     }
     */
 
+    //Realiza la petición para el get de todas las notificaciones
     func getNotifications(){
         if dataTask != nil {
             dataTask?.cancel()
         }
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        //URL para realizar la petición
         let url = NSURL(string: "https://fake-backend-mobile-app.herokuapp.com/alerts")
         let request = URLRequest(url: url! as URL)
         
@@ -75,6 +79,7 @@ class ViewControllerNotifications: UIViewController, UITableViewDataSource, UITa
                 print(error.localizedDescription)
             }
             else{
+                //Si es exitoso, entonces procesa la información
                 if let httpsResponse = response as? HTTPURLResponse {
                     if httpsResponse.statusCode == 200 {
                         DispatchQueue.main.async {
@@ -87,11 +92,13 @@ class ViewControllerNotifications: UIViewController, UITableViewDataSource, UITa
         dataTask?.resume()
     }
     
+    //Procesa los json como notificaciones
     func processData(data: Data){
         
         let jsonDecoder = JSONDecoder()
         let array = try? jsonDecoder.decode([AlertMessage].self, from: data)
         alerts = array!
+        //Vuelve a cargar la información de la tabla porque va a cambiar.
         table.reloadData()
     }
     

@@ -37,6 +37,7 @@ class ViewControllerAlert: UIViewController {
     }
     */
     
+    //Hace preparaciones para el cambio de pantalla
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let alertView = segue.destination as! ViewControllerSendAlert
         alertView.alertType = alertType
@@ -44,43 +45,49 @@ class ViewControllerAlert: UIViewController {
         alertView.lowPriority = low
     }
     
+    //Define la imagen de los botones
     func toggleButtons(){
         if high {
-            highPriority.setImage(#imageLiteral(resourceName: "highselected"), for: .normal)
+            highPriority.setImage(#imageLiteral(resourceName: "HighPriorityIconSelected"), for: .normal)
         }
         else{
-            highPriority.setImage(#imageLiteral(resourceName: "high"), for: .normal)
+            highPriority.setImage(#imageLiteral(resourceName: "HighPriorityIcon"), for: .normal)
         }
         if low {
-            lowPriority.setImage(#imageLiteral(resourceName: "lowselected"), for: .normal)
+            lowPriority.setImage(#imageLiteral(resourceName: "LowPriorityIconSelected"), for: .normal)
         }
         else{
-            lowPriority.setImage(#imageLiteral(resourceName: "low"), for: .normal)
+            lowPriority.setImage(#imageLiteral(resourceName: "LowPriorityIcon"), for: .normal)
         }
     }
     
+    //Realiza selección del botón
     @IBAction func setLow(_ sender: Any) {
         low = true
         high = false
         toggleButtons()
     }
     
+    //Realiza selección del botón
     @IBAction func setHigh(_ sender: Any) {
         low = false
         high = true
         toggleButtons()
     }
     
+    //Realiza selecciónd el botón de tráfico
     @IBAction func setTypeTrafico(_ sender: Any) {
         alertType = "Trafico"
         self.performSegue(withIdentifier: "toAlert", sender: self)
     }
     
+    //Realiza selección del botón de accidente
     @IBAction func setTypeAccidente(_ sender: Any) {
         alertType = "Accidente"
         self.performSegue(withIdentifier: "toAlert", sender: self)
     }
     
+    //Realiza selección del botón de calle cerrada
     @IBAction func setTypeClosedRoad(_ sender: Any) {
         alertType = "Calle Cerrada"
         self.performSegue(withIdentifier: "toAlert", sender: self)
