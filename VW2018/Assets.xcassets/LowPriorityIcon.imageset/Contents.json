@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "LowPriorityIcon.png",
+      "filename" : "LowPriorityIconXL.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "LowPriorityIcon-1.png",
+      "filename" : "LowPriorityIconXL-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "LowPriorityIcon-2.png",
+      "filename" : "LowPriorityIconXL-2.png",
       "scale" : "3x"
     }
   ],

@@ -39,6 +39,7 @@ class ViewControllerPass: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(false)
         timer.invalidate()
+        putPassengers()
     }
 
     override func didReceiveMemoryWarning() {

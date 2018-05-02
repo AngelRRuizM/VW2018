@@ -35,21 +35,21 @@ class ViewControllerSOS: UIViewController {
     //Función para llamar bomberos
     @IBAction func callFirefighters(_ sender: Any) {
         //Número es un placeholder
-        guard let url = URL(string: "tel://030") else { return }
+        guard let url = URL(string: "tel://2224555870") else { return }
         UIApplication.shared.open(url)
     }
     
     //Función para llamar seguridad
     @IBAction func callSecurity(_ sender: Any) {
         //Número es un placeholder
-        guard let url = URL(string: "tel://030") else { return }
+        guard let url = URL(string: "tel://223872836") else { return }
         UIApplication.shared.open(url)
     }
     
     //Función para llamar paramédicos
     @IBAction func callParamedics(_ sender: Any) {
         //Número es un placeholder
-        guard let url = URL(string: "tel://030") else { return }
+        guard let url = URL(string: "tel://2291454786") else { return }
         UIApplication.shared.open(url)
     }
 }
