@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "serviciosmedicos.png",
+      "filename" : "ic_healing_black_48dp.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "ic_healing_black_48dp-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "ic_healing_black_48dp-2.png",
       "scale" : "3x"
     }
   ],

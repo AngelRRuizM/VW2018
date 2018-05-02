@@ -67,7 +67,7 @@ class ViewControllerNotifications: UIViewController, UITableViewDataSource, UITa
         }
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         //URL para realizar la petición
-        let url = NSURL(string: "https://fake-backend-mobile-app.herokuapp.com/alerts?_sort=date")
+        let url = NSURL(string: "https://fake-backend-mobile-app.herokuapp.com/alerts?_sort=date&_order=desc")
         let request = URLRequest(url: url! as URL)
         
         dataTask = defaultSession.dataTask(with: request){

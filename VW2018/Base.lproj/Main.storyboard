@@ -601,7 +601,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="OVs-q0-zlt" style="IBUITableViewCellStyleDefault" id="ZUl-Nw-qwi">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="OVs-q0-zlt" style="IBUITableViewCellStyleDefault" id="ZUl-Nw-qwi">
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZUl-Nw-qwi" id="M2d-Kl-O0S">
@@ -653,7 +653,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Última carga" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="1lJ-gv-DIX">
-                                <rect key="frame" x="115" y="36" width="184" height="36.666666666666657"/>
+                                <rect key="frame" x="115" y="115.33333333333333" width="184" height="36.666666666666671"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="1lJ-gv-DIX" secondAttribute="height" multiplier="5:1" id="cdG-3O-abX"/>
                                 </constraints>
@@ -662,31 +662,25 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="none" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="2LM-gg-vtg">
-                                <rect key="frame" x="151.66666666666666" y="80" width="110.66666666666666" height="22.333333333333329"/>
+                                <rect key="frame" x="151.66666666666666" y="167" width="110.66666666666666" height="22.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cargar Gasolina" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="yZU-ch-s1d">
-                                <rect key="frame" x="115.66666666666669" y="107" width="184" height="36.666666666666657"/>
+                                <rect key="frame" x="115.66666666666669" y="198.33333333333334" width="184" height="36.666666666666657"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cantidad" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KR8-y6-xuE">
-                                <rect key="frame" x="116" y="172.33333333333334" width="184" height="37.333333333333343"/>
+                                <rect key="frame" x="116" y="282" width="184" height="37.333333333333314"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
-                            <textField opaque="NO" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="tipo de gasolina" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eag-Os-y7O">
-                                <rect key="frame" x="156" y="389" width="102" height="30.666666666666686"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Litros" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="TjP-GM-mce">
-                                <rect key="frame" x="300" y="172.33333333333334" width="62" height="37.333333333333343"/>
+                                <rect key="frame" x="300" y="282" width="62" height="37.333333333333314"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="TjP-GM-mce" secondAttribute="height" multiplier="5:3" id="hx3-Ap-zch"/>
                                 </constraints>
@@ -701,6 +695,12 @@
                                     <action selector="recharge:" destination="EdH-Jh-Rdw" eventType="touchUpInside" id="DBi-t4-kzv"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tipo de gasolina" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eag-Os-y7O">
+                                <rect key="frame" x="156" y="388" width="102" height="30.666666666666686"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.95294117649999999" green="0.96078431369999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.0" green="0.59999999999999998" blue="0.85490196080000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -873,7 +873,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prioridad" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="CBU-eE-bdx">
-                                <rect key="frame" x="78.333333333333343" y="96" width="257.33333333333326" height="36.666666666666657"/>
+                                <rect key="frame" x="78.333333333333343" y="80" width="257.33333333333326" height="36.666666666666657"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="CBU-eE-bdx" secondAttribute="height" multiplier="7:1" id="cVD-jn-Xcu"/>
                                 </constraints>
@@ -882,34 +882,34 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qjh-PN-Bdq">
-                                <rect key="frame" x="249.33333333333337" y="332.33333333333331" width="81" height="81"/>
+                                <rect key="frame" x="249.33333333333337" y="311" width="81" height="81"/>
                                 <state key="normal" image="crash"/>
                                 <connections>
                                     <action selector="setTypeAccidente:" destination="l1f-ni-JR3" eventType="touchUpInside" id="y29-iD-3ai"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tipo de alerta" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="11" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZIL-Ko-URJ">
-                                <rect key="frame" x="78.333333333333343" y="265.33333333333331" width="257.33333333333326" height="36.333333333333314"/>
+                                <rect key="frame" x="78.333333333333343" y="246.33333333333334" width="257.33333333333326" height="36.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vry-ZG-pw4">
-                                <rect key="frame" x="83.666666666666671" y="332.33333333333331" width="81.000000000000014" height="81"/>
+                                <rect key="frame" x="83.666666666666671" y="311" width="81.000000000000014" height="81"/>
                                 <state key="normal" image="trafficjam"/>
                                 <connections>
                                     <action selector="setTypeTrafico:" destination="l1f-ni-JR3" eventType="touchUpInside" id="jL7-sA-rJr"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wvX-xu-W5Q">
-                                <rect key="frame" x="83.666666666666671" y="159.33333333333334" width="81.000000000000014" height="81"/>
+                                <rect key="frame" x="83.666666666666671" y="140.33333333333334" width="81.000000000000014" height="81"/>
                                 <state key="normal" image="LowPriorityIcon"/>
                                 <connections>
                                     <action selector="setLow:" destination="l1f-ni-JR3" eventType="touchUpInside" id="YPS-qO-VEx"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yk6-cu-S6e">
-                                <rect key="frame" x="249.33333333333337" y="159.33333333333334" width="81" height="81"/>
+                                <rect key="frame" x="249.33333333333337" y="140.33333333333334" width="81" height="81"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="yk6-cu-S6e" secondAttribute="height" multiplier="1:1" id="y1U-8x-qRJ"/>
                                 </constraints>
@@ -919,29 +919,29 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tJB-AB-DGA">
-                                <rect key="frame" x="166.66666666666666" y="461.33333333333331" width="80.666666666666657" height="81.666666666666686"/>
+                                <rect key="frame" x="166.66666666666666" y="439.33333333333331" width="80.666666666666657" height="81.666666666666686"/>
                                 <state key="normal" image="closedroad"/>
                                 <connections>
                                     <action selector="setTypeClosedRoad:" destination="l1f-ni-JR3" eventType="touchUpInside" id="xaq-pl-Wak"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tráfico" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="77x-9N-HeV">
-                                <rect key="frame" x="83.666666666666671" y="413.33333333333331" width="81.000000000000014" height="26.666666666666686"/>
+                                <rect key="frame" x="83.666666666666671" y="392" width="81.000000000000014" height="26.666666666666686"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="77x-9N-HeV" secondAttribute="height" multiplier="3:1" id="9xY-2j-V5B"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Accidente" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="DXu-RS-Emt">
-                                <rect key="frame" x="249.33333333333337" y="413.33333333333331" width="81" height="26.666666666666686"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <rect key="frame" x="249.33333333333337" y="392" width="81" height="26.666666666666686"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calle cerrada" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Etu-JB-bR8">
-                                <rect key="frame" x="166.66666666666666" y="543" width="80.666666666666657" height="26.666666666666629"/>
+                                <rect key="frame" x="146.33333333333334" y="521" width="121.33333333333334" height="26.666666666666629"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -978,7 +978,7 @@
                             <constraint firstItem="Vry-ZG-pw4" firstAttribute="width" secondItem="wvX-xu-W5Q" secondAttribute="width" id="lWC-9E-5rh"/>
                             <constraint firstItem="yk6-cu-S6e" firstAttribute="height" secondItem="wvX-xu-W5Q" secondAttribute="height" id="leA-89-7SO"/>
                             <constraint firstItem="ZIL-Ko-URJ" firstAttribute="centerX" secondItem="M9Z-s2-ZCj" secondAttribute="centerX" id="nda-cb-qu3"/>
-                            <constraint firstItem="Etu-JB-bR8" firstAttribute="width" secondItem="DXu-RS-Emt" secondAttribute="width" id="oYX-Gm-67S"/>
+                            <constraint firstItem="Etu-JB-bR8" firstAttribute="width" secondItem="DXu-RS-Emt" secondAttribute="width" multiplier="1.5" id="oYX-Gm-67S"/>
                             <constraint firstItem="ZIL-Ko-URJ" firstAttribute="top" secondItem="yk6-cu-S6e" secondAttribute="bottom" constant="25.666666666666686" id="qOJ-mt-NFD"/>
                             <constraint firstItem="DXu-RS-Emt" firstAttribute="height" secondItem="77x-9N-HeV" secondAttribute="height" id="qvh-do-vZn"/>
                             <constraint firstItem="Vry-ZG-pw4" firstAttribute="top" secondItem="ZIL-Ko-URJ" secondAttribute="bottom" multiplier="1.1" id="r30-Bs-gdA"/>
@@ -986,7 +986,7 @@
                             <constraint firstItem="wvX-xu-W5Q" firstAttribute="centerX" secondItem="M9Z-s2-ZCj" secondAttribute="centerX" multiplier="0.6" id="r9h-4o-bTK"/>
                             <constraint firstItem="Vry-ZG-pw4" firstAttribute="height" secondItem="wvX-xu-W5Q" secondAttribute="height" id="uTj-D5-4bp"/>
                             <constraint firstItem="77x-9N-HeV" firstAttribute="width" secondItem="Vry-ZG-pw4" secondAttribute="width" id="vlN-iD-q1o"/>
-                            <constraint firstItem="CBU-eE-bdx" firstAttribute="top" secondItem="M9Z-s2-ZCj" secondAttribute="top" multiplier="1.5" id="xUo-X1-pgU"/>
+                            <constraint firstItem="CBU-eE-bdx" firstAttribute="top" secondItem="M9Z-s2-ZCj" secondAttribute="top" multiplier="1.25" id="xUo-X1-pgU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="M9Z-s2-ZCj"/>
                     </view>
@@ -1187,7 +1187,7 @@
                                 <color key="tintColor" red="0.0" green="0.59999999999999998" blue="0.85490196080000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.95294117649999999" green="0.96078431369999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="ACL-UN-5bu" detailTextLabel="Xy8-IX-iEp" style="IBUITableViewCellStyleSubtitle" id="fkb-cm-ayA">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="ACL-UN-5bu" detailTextLabel="Xy8-IX-iEp" style="IBUITableViewCellStyleSubtitle" id="fkb-cm-ayA">
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fkb-cm-ayA" id="131-kh-T5E">
@@ -1280,27 +1280,26 @@
     <resources>
         <image name="HighPriorityIcon" width="83" height="83"/>
         <image name="LowPriorityIcon" width="84" height="84"/>
-        <image name="bomberos" width="110" height="106"/>
+        <image name="bomberos" width="170" height="170"/>
         <image name="bstar" width="67" height="72"/>
         <image name="closedroad" width="71" height="71"/>
-        <image name="crafter" width="33" height="34"/>
+        <image name="crafter" width="14" height="15"/>
         <image name="crash" width="88" height="66"/>
         <image name="ic_add_alert" width="24" height="24"/>
         <image name="ic_add_circle_48pt" width="48" height="48"/>
         <image name="ic_insert_chart" width="24" height="24"/>
-        <image name="ic_local_gas_station" width="12" height="14"/>
+        <image name="ic_local_gas_station" width="24" height="24"/>
         <image name="ic_phone" width="24" height="24"/>
         <image name="ic_remove_circle_48pt" width="48" height="48"/>
-        <image name="medicos" width="101" height="104"/>
+        <image name="medicos" width="64" height="64"/>
         <image name="notifications" width="48" height="48"/>
         <image name="profile" width="48" height="48"/>
-        <image name="seguridad" width="111" height="106"/>
+        <image name="seguridad" width="64" height="64"/>
         <image name="trafficjam" width="79" height="55"/>
         <image name="userpic" width="57" height="58"/>
         <image name="vw" width="200" height="199"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="e6Z-xa-CPk"/>
         <segue reference="Eqx-mD-WpC"/>
         <segue reference="Ffb-Fd-7gF"/>
     </inferredMetricsTieBreakers>
