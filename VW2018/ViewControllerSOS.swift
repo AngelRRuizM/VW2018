@@ -34,28 +34,22 @@ class ViewControllerSOS: UIViewController {
     
     //Función para llamar bomberos
     @IBAction func callFirefighters(_ sender: Any) {
-        let options = [UIApplicationOpenURLOptionUniversalLinksOnly: true]
         //Número es un placeholder
-        if let url = URL(string: "tel:030"){
-            UIApplication.shared.open(url, options: options, completionHandler: nil)
-        }
+        guard let url = URL(string: "tel://030") else { return }
+        UIApplication.shared.open(url)
     }
     
     //Función para llamar seguridad
     @IBAction func callSecurity(_ sender: Any) {
-        let options = [UIApplicationOpenURLOptionUniversalLinksOnly: true]
         //Número es un placeholder
-        if let url = URL(string: "tel:030"){
-            UIApplication.shared.open(url, options: options, completionHandler: nil)
-        }
+        guard let url = URL(string: "tel://030") else { return }
+        UIApplication.shared.open(url)
     }
     
     //Función para llamar paramédicos
     @IBAction func callParamedics(_ sender: Any) {
-        let options = [UIApplicationOpenURLOptionUniversalLinksOnly: true]
         //Número es un placeholder
-        if let url = URL(string: "tel:030"){
-            UIApplication.shared.open(url, options: options, completionHandler: nil)
-        }
+        guard let url = URL(string: "tel://030") else { return }
+        UIApplication.shared.open(url)
     }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewControllerChangePassword: UIViewController {
+class ViewControllerChangePassword: UIViewController, UITextFieldDelegate {
 
     var driver = Driver()
     
@@ -21,6 +21,9 @@ class ViewControllerChangePassword: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        actual.delegate = self
+        new.delegate = self
+        new2.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,6 +31,18 @@ class ViewControllerChangePassword: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField.tag == 0{
+            actual.resignFirstResponder()
+        }
+        else if textField.tag == 1{
+            new.resignFirstResponder()
+        }
+        else {
+            new2.resignFirstResponder()
+        }
+        return true
+    }
 
     /*
     // MARK: - Navigation

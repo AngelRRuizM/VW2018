@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewControllerFuel: UIViewController {
+class ViewControllerFuel: UIViewController, UITextFieldDelegate {
 
     var crafter = Crafter()
     
@@ -24,6 +24,8 @@ class ViewControllerFuel: UIViewController {
         let x = crafter.fuel_reffils.count
         last.text = crafter.fuel_reffils[x - 1].datetime
         // Do any additional setup after loading the view.
+        fuelType.delegate = self
+        liters.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,6 +34,17 @@ class ViewControllerFuel: UIViewController {
     }
     
 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField.tag == 0{
+            liters.resignFirstResponder()
+        }
+        else if textField.tag == 1{
+            fuelType.resignFirstResponder()
+        }
+        return true
+    }
+
+    
     /*
     // MARK: - Navigation
 

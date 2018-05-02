@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "vw.png",
+      "filename" : "vwlogo.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "vwlogo-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "vwlogo-2.png",
       "scale" : "3x"
     }
   ],

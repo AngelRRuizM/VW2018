@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class ViewControllerSendAlert: UIViewController, CLLocationManagerDelegate {
+class ViewControllerSendAlert: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
 
     var alertType: String = ""
     var highPriority: Bool = false
@@ -49,7 +49,8 @@ class ViewControllerSendAlert: UIViewController, CLLocationManagerDelegate {
         if CLLocationManager.locationServicesEnabled() {
             manager.startUpdatingLocation()
         }
-        // Do any additional setup after loading the view.
+        
+        moreInfo.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,7 +58,13 @@ class ViewControllerSendAlert: UIViewController, CLLocationManagerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        moreInfo.resignFirstResponder()
+        return true
+    }
 
+
+    
     /*
     // MARK: - Navigation
 
