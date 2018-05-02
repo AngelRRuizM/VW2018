@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "ic_remove_circle_48pt.png",
+      "filename" : "ic_remove_circle_48pt_3x-1.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "ic_remove_circle_48pt_2x.png",
+      "filename" : "ic_remove_circle_48pt_3x-2.png",
       "scale" : "2x"
     },
     {
